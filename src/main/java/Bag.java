@@ -100,17 +100,15 @@ public abstract class Bag {
      *
      * If there are no items in this Bag, return null.
      *
-     * @return
+     * @return the last item in the bag.
      */
     public String popItem() {
         if (this.numberOfContents > 0) {
             String toReturn = this.contents[this.numberOfContents - 1];
-            this.numberOfContents--;
-            String[] newContents = new String[this.numberOfContents];
-            for (int i = 0; i < this.numberOfContents; i++) {
-                newContents[i] = this.contents[i];
-            }
+            String[] newContents = new String[this.numberOfContents - 1];
+            System.arraycopy(this.contents, 0, newContents, 0, this.numberOfContents - 1);
             this.contents = newContents;
+            this.numberOfContents--;
             return toReturn;
         } else {
             return null;
@@ -134,7 +132,7 @@ public abstract class Bag {
      * This method requires you to have created the private
      * instance variables mentioned above.
      *
-     * @return
+     * @return a string containing the colour, number of contents, and bag capacity.
      */
     @Override
     public String toString() {
