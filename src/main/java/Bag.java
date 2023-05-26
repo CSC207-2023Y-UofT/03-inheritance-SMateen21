@@ -102,19 +102,20 @@ public abstract class Bag {
      *
      * @return
      */
-    public String popItem(){
-        String toReturn = this.contents[this.numberOfContents - 1];
-        this.numberOfContents --;
-        String[] newContents = new String[this.numberOfContents];
-        for (int i = 0; i < this.numberOfContents; i++) {
-            newContents[i] = this.contents[i];
+    public String popItem() {
+        if (this.numberOfContents > 0) {
+            String toReturn = this.contents[this.numberOfContents - 1];
+            this.numberOfContents--;
+            String[] newContents = new String[this.numberOfContents];
+            for (int i = 0; i < this.numberOfContents; i++) {
+                newContents[i] = this.contents[i];
+            }
+            this.contents = newContents;
+            return toReturn;
+        } else {
+            return null;
         }
-        this.contents = newContents;
-        return toReturn;
-
-
     }
-
 
 
 
