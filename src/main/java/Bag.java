@@ -37,7 +37,7 @@ public abstract class Bag {
         this.capacity = capacity;
         this.color = colour;
         this.numberOfContents = 0;
-        this.contents = new String[this.numberOfContents];
+        this.contents = new String[this.capacity];
 
     }
 
@@ -86,7 +86,7 @@ public abstract class Bag {
     public void addItem(String toAdd) {
         if (this.numberOfContents < this.capacity){
             this.numberOfContents ++;
-            this.contents[this.numberOfContents] = toAdd;
+            this.contents[this.numberOfContents - 1] = toAdd;
         }
     }
 
